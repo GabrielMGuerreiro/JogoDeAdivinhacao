@@ -5,26 +5,27 @@ import javax.swing.JOptionPane;
 
 public class RepeticaoWhileEx2 {
     public static void main(String[] args) 
-           Random a = new Random();
+          Random a = new Random();
         int x = 0, t = 1, v = 0;
         JOptionPane.showMessageDialog(null,"- JOGO DE ADIVINHAÇÃO -\n\n\nTente adivinhar o número!!\n\n- Terá 10 tentativas.\n\nClique em 'OK' para continuar.\n\n\n");
-        int n = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite um número entre 1 e 100."));
+        
         
         while(x < 1 || x > 100){
             x = a.nextInt(101);
         }
         
         while( t <= 10){
+            int n = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite um número entre 1 e 100."));
+            v = 1;
             if(n > x){
-                int aux = Integer.parseInt(JOptionPane.showInputDialog(null,"DICA: O número anterior é maior que o número a ser adivinhado.\n\nTentativas: "+t+"\n\nDigite outro número: "));
-                n = aux;
+                 JOptionPane.showMessageDialog(null,"DICA: O número -> "+n+" é maior que o número a ser adivinhado.\n\nTentativas: "+t+"\n\nDigite outro número.\n\n");
                 v += 1;
             }else if(n < x){
-                int aux = Integer.parseInt(JOptionPane.showInputDialog(null,"DICA: O número anterior é menor que o número a ser adivinhado.\n\nTentativas: "+t+"\n\nDigite outro número: "));
-                n = aux;
+                JOptionPane.showMessageDialog(null,"DICA: O número -> "+n+" é menor que o número a ser adivinhado.\n\nTentativas: "+t+"\n\nDigite outro número.\n\n");
+                
                 v += 1;
             }else if(n == x){
-                JOptionPane.showMessageDialog(null, "VOCÊ ACERTOUUUUUUUUU\n\n\nO número é: "+n+"\n\nVocê tentou "+t+" vezes.\n\n");
+                JOptionPane.showMessageDialog(null, "VOCÊ ACERTOUUUUUUUUU\n\n\nO número é: "+n+"\n\n\nVocê tentou "+t+" vezes.\n\n");
                 return;
             }
             t++;
