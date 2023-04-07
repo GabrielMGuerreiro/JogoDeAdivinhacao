@@ -1,0 +1,31 @@
+package repeticaowhileex2;
+
+import java.util.Random;
+import javax.swing.JOptionPane;
+
+public class RepeticaoWhileEx2 {
+    public static void main(String[] args) 
+        Random a = new Random();
+        int x = 0;
+        JOptionPane.showMessageDialog(null,"- JOGO DE ADIVINHAÇÃO -\n\n\nTente adivinhar o número!!\n\n\n\nClique em 'OK' para continuar.\n\n\n");
+        int n = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite um número entre 1 e 100."));
+        
+        while(x < 1 || x > 100){
+            x = a.nextInt(101);
+        }
+        
+        while( n != x){
+            if(n > x){
+                int aux = Integer.parseInt(JOptionPane.showInputDialog(null,"DICA: O número anterior é maior que o número a ser adivinhado.\nDigite outro número: "));
+                n = aux;
+            }else if(n < x){
+                int aux = Integer.parseInt(JOptionPane.showInputDialog(null,"DICA: O número anterior é menor que o número a ser adivinhado.\nDigite outro número: "));
+                n = aux;
+            }
+        }
+        
+        JOptionPane.showMessageDialog(null,"VOCÊ ACERTOUUUUUUUUU\n\n\nO número é: "+n);
+        
+    }
+    
+}
